@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -23,7 +24,7 @@ export default function About() {
 
           {/* Image */}
           <div className="flex-1 order-1 lg:order-2">
-            <img
+            <Image
               src="/images/Bitmap-About.png"
               alt="Person listening to headphones"
               className="w-full h-64 lg:h-80 object-cover rounded-lg"

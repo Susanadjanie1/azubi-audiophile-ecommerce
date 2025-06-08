@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -34,10 +35,10 @@ export default function Footer() {
 
           {/* Description */}
           <p className="text-sm text-gray-400 mb-8 max-w-sm md:max-w-none">
-            Audiophile is an all in one stop to fulfill your audio needs. We're
+            Audiophile is an all in one stop to fulfill your audio needs. We&apos;re
             a small team of music lovers and sound specialists who are devoted
             to helping you get the most out of personal audio. Come and visit
-            our demo facility – we’re open 7 days a week.
+            our demo facility – we&apos;re open 7 days a week.
           </p>
 
           <p
@@ -64,9 +65,9 @@ export default function Footer() {
           md:items-start
         "
         >
-          <a href="/" className="uppercase text-sm hover:text-[#D87D4A]">
+          <Link href="/" className="uppercase text-sm hover:text-[#D87D4A]">
             Home
-          </a>
+          </Link>
           <a
             href="/headphones"
             className="uppercase text-sm hover:text-[#D87D4A]"

@@ -1,19 +1,21 @@
+import Image from 'next/image';
+
 export default function FeaturedProducts() {
   const categories = [
     {
       id: "headphones",
       title: "HEADPHONES",
-      image: "/images/image-category-thumbnail-headphones.png",
+      Image: "/images/image-category-thumbnail-headphones.png",
     },
     {
       id: "speakers",
       title: "SPEAKERS",
-      image: "/images/image-category-thumbnail-speakers.png",
+      Image: "/images/image-category-thumbnail-speakers.png",
     },
     {
       id: "earphones",
       title: "EARPHONES",
-      image: "/images/image-category-thumbnail-earphones.png",
+      Image: "/images/image-category-thumbnail-earphones.png",
     },
   ];
 
@@ -36,7 +38,7 @@ export default function FeaturedProducts() {
                 className="relative pt-2 pb-6 flex justify-center items-center"
                 style={{ height: "100px" }}
               >
-                <img
+                <Image
                   src={category.image}
                   alt={category.title}
                   className="max-w-[140px] max-h-[140px] object-contain group-hover:scale-110 transition-all duration-300 relative z-10 filter drop-shadow-lg"

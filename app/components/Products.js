@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Products() {
   const products = [
     {
@@ -5,7 +7,7 @@ export default function Products() {
       name: "ZX9 SPEAKER",
       description:
         "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
-      image: "/images/image-category-thumbnail-speakers.png",
+      Image: "/images/image-category-thumbnail-speakers.png",
       featured: true,
       bgColor: "bg-[#D87D4A]",
     },
@@ -14,7 +16,7 @@ export default function Products() {
       name: "ZX7 SPEAKER",
       description:
         "Stream high quality sound wirelessly with minimal to no loss.",
-      images: {
+      Images: {
         desktop: "/images/image-speaker-zx7.jpg",
         tablet: "/images/image-speaker-zx7-tablet.jpg",
         mobile: "/images/Speaker-product-mobile.png",
@@ -27,7 +29,7 @@ export default function Products() {
       name: "YX1 EARPHONES",
       description:
         "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones.",
-      image: "/images/image-earphones-yx1-mobile.jpg",
+      Image: "/images/image-earphones-yx1-mobile.jpg",
       featured: false,
       bgColor: "bg-[#F1F1F1]",
     },
@@ -48,7 +50,7 @@ export default function Products() {
           <div className="flex flex-col lg:flex-row items-center relative z-10 h-full gap-8 lg:gap-16">
             {/* Image */}
             <div className="flex-1 flex justify-center items-center lg:justify-start pt-8 lg:pt-0">
-              <img
+              <Image
                 src={products[0].image}
                 alt={products[0].name}
                 className="w-48 lg:w-[300px] xl:w-[400px]"
@@ -96,7 +98,7 @@ export default function Products() {
         {/* YX1 Earphones */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8">
-            <img
+            <Image
               src={products[2].image}
               alt={products[2].name}
               className="w-64 h-64 object-cover rounded-lg"

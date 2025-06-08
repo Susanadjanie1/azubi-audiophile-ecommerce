@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="bg-black text-white relative overflow-hidden">
       {/* Background image for mobile and tablet */}
       <div className="absolute inset-0 lg:hidden">
-        <img
+        <Image
           src="public/images/Bitmap-hero.png"
           alt=""
           className="w-full h-full object-cover opacity-20"
@@ -39,7 +40,7 @@ export default function Hero() {
           {/* Hero Image - Only visible on desktop */}
           <div className="hidden lg:flex flex-1 justify-center lg:justify-end">
             <div className="relative">
-              <img
+              <Image
                 src="/images/Bitmap-hero.png"
                 alt="XX99 Mark II Headphones"
                 className="w-64 h-64 lg:w-96 lg:h-96 object-contain"
