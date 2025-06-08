@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function FeaturedProducts() {
   const categories = [
@@ -38,15 +38,19 @@ export default function FeaturedProducts() {
                 className="relative pt-2 pb-6 flex justify-center items-center"
                 style={{ height: "100px" }}
               >
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  className="max-w-[140px] max-h-[140px] object-contain group-hover:scale-110 transition-all duration-300 relative z-10 filter drop-shadow-lg"
-                  style={{
-                    transform: "translateY(-20px)",
-                    filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.15))",
-                  }}
-                />
+                {category.Image && (
+                  <Image
+                    src={category.Image}
+                    alt={category.title || "Category image"}
+                    width={140}
+                    height={140}
+                    className="max-w-[140px] max-h-[140px] object-contain group-hover:scale-110 transition-all duration-300 relative z-10 filter drop-shadow-lg"
+                    style={{
+                      transform: "translateY(-20px)",
+                      filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.15))",
+                    }}
+                  />
+                )}
               </div>
 
               <div className="mb-6">

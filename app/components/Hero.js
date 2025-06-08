@@ -7,9 +7,10 @@ export default function Hero() {
       {/* Background image for mobile and tablet */}
       <div className="absolute inset-0 lg:hidden">
         <Image
-          src="public/images/Bitmap-hero.png"
+          src="/images/Bitmap-hero.png"
           alt=""
-          className="w-full h-full object-cover opacity-20"
+          fill
+          className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
       </div>
@@ -39,11 +40,12 @@ export default function Hero() {
 
           {/* Hero Image - Only visible on desktop */}
           <div className="hidden lg:flex flex-1 justify-center lg:justify-end">
-            <div className="relative">
+            <div className="relative w-64 h-64 lg:w-96 lg:h-96">
               <Image
                 src="/images/Bitmap-hero.png"
                 alt="XX99 Mark II Headphones"
-                className="w-64 h-64 lg:w-96 lg:h-96 object-contain"
+                fill
+                className="object-contain"
               />
             </div>
           </div>

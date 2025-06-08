@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -9,25 +9,33 @@ export default function About() {
           {/* Content */}
           <div className="flex-1 order-2 lg:order-1 text-center lg:text-left">
             <h2 className="text-3xl lg:text-4xl font-bold mb-8 leading-tight">
-              BRINGING YOU THE{' '}
-              <span className="text-[#D87D4A]">BEST</span>{' '}
+              BRINGING YOU THE <span className="text-[#D87D4A]">BEST</span>{" "}
               AUDIO GEAR
             </h2>
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              Located at the heart of New York City, Audiophile is the premier store for high end 
-              headphones, earphones, speakers, and audio accessories. We have a large showroom and 
-              luxury demonstration rooms available for you to browse and experience a wide range of our 
-              products. Stop by our store to meet some of the fantastic people who make Audiophile the 
-              best place to buy your portable audio equipment.
+              Located at the heart of New York City, Audiophile is the premier
+              store for high end headphones, earphones, speakers, and audio
+              accessories. We have a large showroom and luxury demonstration
+              rooms available for you to browse and experience a wide range of
+              our products. Stop by our store to meet some of the fantastic
+              people who make Audiophile the best place to buy your portable
+              audio equipment.
             </p>
           </div>
 
           {/* Image */}
-          <div className="flex-1 order-1 lg:order-2">
+          <div
+            className="flex-1 order-1 lg:order-2 relative 
+  w-[327px] h-[300px]        /* Mobile */
+  md:w-[689px] md:h-[300px]  /* Tablet */
+  lg:w-[540px] lg:h-[588px]  /* Desktop */
+  rounded-lg overflow-hidden"
+          >
             <Image
               src="/images/Bitmap-About.png"
               alt="Person listening to headphones"
-              className="w-full h-64 lg:h-80 object-cover rounded-lg"
+              fill
+              className="object-cover rounded-lg"
             />
           </div>
         </div>

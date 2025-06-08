@@ -49,12 +49,20 @@ export default function Products() {
 
           <div className="flex flex-col lg:flex-row items-center relative z-10 h-full gap-8 lg:gap-16">
             {/* Image */}
-            <div className="flex-1 flex justify-center items-center lg:justify-start pt-8 lg:pt-0">
-              <Image
-                src={products[0].image}
-                alt={products[0].name}
-                className="w-48 lg:w-[300px] xl:w-[400px]"
-              />
+            <div className="relative w-48 lg:w-[300px] xl:w-[400px] h-auto aspect-square">
+              {products[0]?.Image ? (
+                <Image
+                  src={products[0].Image}
+                  alt={products[0].name}
+                  fill
+                  className="object-contain"
+                />
+              ) : (
+                // Optional: fallback content if no image
+                <div className="w-48 lg:w-[300px] xl:w-[400px] bg-gray-200 flex items-center justify-center">
+                  No image available
+                </div>
+              )}
             </div>
 
             {/* Text Content */}
@@ -79,7 +87,7 @@ export default function Products() {
           className="rounded-lg relative overflow-hidden min-h-[320px] flex items-center bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${
-              products[1].images?.desktop || "/images/zx7-desktop.jpg"
+              products[1].Images?.desktop || "/images/zx7-desktop.jpg"
             })`,
           }}
         >
@@ -97,13 +105,21 @@ export default function Products() {
 
         {/* YX1 Earphones */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8">
-            <Image
-              src={products[2].image}
-              alt={products[2].name}
-              className="w-64 h-64 object-cover rounded-lg"
-            />
-          </div>
+          {products[2]?.Image ? (
+            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 relative w-[540px] h-[320px]">
+              <Image
+                src={products[2].Image}
+                alt={products[2].name}
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          ) : (
+            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 w-[540px] h-[320px]">
+              <p>No image available</p>
+            </div>
+          )}
+
           <div className="bg-[#F1F1F1] rounded-lg p-8 lg:p-16 flex flex-col justify-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-wider">
               {products[2].name}
