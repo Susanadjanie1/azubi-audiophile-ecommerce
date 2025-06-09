@@ -1,117 +1,114 @@
-import { Facebook, Twitter, Instagram } from "lucide-react";
-import Link from "next/link";
+import React from 'react';
+import { Facebook, Twitter, Instagram } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 py-10 md:px-20">
-      <div
-        className="
-        max-w-7xl mx-auto
-        grid gap-10
+    <footer className="bg-black text-white">
+      {/* Orange accent line */}
+      <div className="h-1 bg-[#D87D4A] w-24 mx-6 md:mx-8 lg:mx-12 xl:mx-24"></div>
+      
+      <div className="px-6 md:px-8 lg:px-12 xl:px-24 py-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <div className="flex justify-center mb-8">
+              <div className="relative w-[143px] h-[25px]">
+                <Image 
+                  src="/assets/shared/desktop/logo.svg" 
+                  alt="Audiophile" 
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            
+            <nav className="flex flex-col items-center gap-4 mb-12">
+              <Link href="/" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                Home
+              </Link>
+              <Link href="/headphones" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                Headphones
+              </Link>
+              <Link href="/speakers" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                Speakers
+              </Link>
+              <Link href="/earphones" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                Earphones
+              </Link>
+            </nav>
+          </div>
 
-        /* MOBILE: 1 column */
-        grid-cols-1 text-center
-
-        /* TABLET: 2 columns */
-        md:grid-cols-2 md:text-left md:items-start
-
-        /* DESKTOP: 3 columns */
-        lg:grid-cols-3
-      "
-      >
-        {/* Logo & Description + Copyright for desktop & tablet */}
-        <div
-          className="
-          flex flex-col justify-between h-full
-          /* Mobile center */
-          items-center
-
-          /* Tablet & Desktop left align */
-          md:items-start
-        "
-        >
-          {/* Logo */}
-          <h2 className="text-xl font-bold mb-4">audiophile</h2>
+          {/* Tablet/Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
+              <div className="relative w-[143px] h-[25px] mb-8 lg:mb-0">
+                <Image 
+                  src="/assets/shared/desktop/logo.svg" 
+                  alt="Audiophile" 
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              
+              <nav className="flex gap-8">
+                <Link href="/" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                  Home
+                </Link>
+                <Link href="/headphones" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                  Headphones
+                </Link>
+                <Link href="/speakers" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                  Speakers
+                </Link>
+                <Link href="/earphones" className="uppercase text-sm font-bold tracking-wider hover:text-[#D87D4A] transition-colors">
+                  Earphones
+                </Link>
+              </nav>
+            </div>
+          </div>
 
           {/* Description */}
-          <p className="text-sm text-gray-400 mb-8 max-w-sm md:max-w-none">
-            Audiophile is an all in one stop to fulfill your audio needs. We&apos;re
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility – we&apos;re open 7 days a week.
-          </p>
+          <div className="mb-12">
+            <p className="text-gray-500 text-center md:text-left text-sm leading-6 max-w-xl md:max-w-2xl">
+              Audiophile is an all in one stop to fulfill your audio needs. We&apos;re a small team of music lovers 
+              and sound specialists who are devoted to helping you get the most out of personal audio. 
+              Come and visit our demo facility - we&apos;re open 7 days a week.
+            </p>
+          </div>
 
-          <p
-            className="text-xs text-gray-500 
-            /* Mobile center */
-            text-center md:text-left
-            /* Push to bottom on desktop/tablet */
-            mt-auto
-          "
-          >
-            Copyright 2021. All Rights Reserved
-          </p>
-        </div>
-
-        {/* Nav Links */}
-        <nav
-          className="
-          flex flex-col gap-2
-
-          /* Mobile center */
-          items-center
-
-          /* Tablet & Desktop left align */
-          md:items-start
-        "
-        >
-          <Link href="/" className="uppercase text-sm hover:text-[#D87D4A]">
-            Home
-          </Link>
-          <a
-            href="/headphones"
-            className="uppercase text-sm hover:text-[#D87D4A]"
-          >
-            Headphones
-          </a>
-          <a
-            href="/speakers"
-            className="uppercase text-sm hover:text-[#D87D4A]"
-          >
-            Speakers
-          </a>
-          <a
-            href="/earphones"
-            className="uppercase text-sm hover:text-[#D87D4A]"
-          >
-            Earphones
-          </a>
-        </nav>
-
-        {/* Social Icons */}
-        <div
-          className="
-          flex gap-4 
-
-          /* Mobile center */
-          justify-center 
-
-          /* Tablet: place on right column, bottom right align */
-          md:justify-end md:items-end
-
-          /* Desktop: left aligned under nav links */
-          lg:justify-start lg:items-start
-        "
-        >
-          <a href="#" aria-label="Facebook">
-            <Facebook className="hover:text-[#D87D4A]" />
-          </a>
-          <a href="#" aria-label="Twitter">
-            <Twitter className="hover:text-[#D87D4A]" />
-          </a>
-          <a href="#" aria-label="Instagram">
-            <Instagram className="hover:text-[#D87D4A]" />
-          </a>
+          {/* Bottom Section */}
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm mb-8 md:mb-0">
+              Copyright 2021. All Rights Reserved
+            </p>
+            
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              <Link 
+                href="#" 
+                className="text-white hover:text-[#D87D4A] transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </Link>
+              <Link 
+                href="#" 
+                className="text-white hover:text-[#D87D4A] transition-colors duration-300"
+                aria-label="Twitter"
+              >
+                <Twitter size={20} />
+              </Link>
+              <Link 
+                href="#" 
+                className="text-white hover:text-[#D87D4A] transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

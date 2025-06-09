@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .topSection {
@@ -18,11 +18,11 @@
     align-items: center;
     gap: 8%;
   }
-  
+
   .productImageContainer {
     flex: 1;
   }
-  
+
   .productInfo {
     flex: 1;
     text-align: left;
@@ -45,7 +45,7 @@
 }
 
 .new {
-  color: #D87D4A;
+  color: #d87d4a;
   text-transform: uppercase;
   font-size: 0.875rem;
   letter-spacing: 10px;
@@ -54,28 +54,40 @@
   display: block;
 }
 
-.title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.14;
-  letter-spacing: 1px;
-  margin: 1rem 0;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.titleContainer {
+  margin: 1.5rem 0;
 }
 
-.productType {
+.mainTitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1.43px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
   display: block;
-  width: 100%;
+}
+
+.typeTitle {
+  display: block;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
 }
 
 .description {
-  color: #7D7D7D;
+  font-family: "Manrope", sans-serif;
+  color: #7d7d7d;
   font-size: 0.9375rem;
+  font-weight: 500;
   line-height: 1.67;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
 }
 
 .price {
@@ -95,7 +107,7 @@
 .quantitySelector {
   display: flex;
   align-items: center;
-  background: #F1F1F1;
+  background: #f1f1f1;
   padding: 0.5rem 1rem;
   margin-right: 1rem;
 }
@@ -125,11 +137,11 @@
 }
 
 .addToCart {
-  background-color: #D87D4A;
+  background-color: #d87d4a;
   color: white;
   border: none;
   padding: 1rem 2rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -142,7 +154,7 @@
 }
 
 .addToCart:hover {
-  background-color: #FBAF85;
+  background-color: #fbaf85;
 }
 
 .navigation {
@@ -151,7 +163,7 @@
 }
 
 .backLink {
-  color: #7D7D7D;
+  color: #7d7d7d;
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -162,7 +174,7 @@
 }
 
 .backLink:hover {
-  color: #D87D4A;
+  color: #d87d4a;
 }
 
 /* Features Section */
@@ -185,7 +197,7 @@
 }
 
 .sectionTitle {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
@@ -202,11 +214,11 @@
 }
 
 .paragraph {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.67;
-  color: #7D7D7D;
+  color: #7d7d7d;
   margin: 0;
 }
 
@@ -231,13 +243,13 @@
 }
 
 .quantity {
-  color: #D87D4A;
+  color: #d87d4a;
   font-weight: 700;
   min-width: 30px;
 }
 
 .itemName {
-  color: #7D7D7D;
+  color: #7d7d7d;
   font-weight: 500;
   font-size: 0.9375rem;
   line-height: 1.67;
@@ -261,7 +273,10 @@
   }
 }
 
-.featuresSection, .inTheBox, .gallery, .recommendations {
+.featuresSection,
+.inTheBox,
+.gallery,
+.recommendations {
   margin-top: 4rem;
 }
 
@@ -292,7 +307,7 @@
 
 .seeProduct {
   margin-top: 0.5rem;
-  background: #D87D4A;
+  background: #d87d4a;
   color: white;
   border: none;
   padding: 0.5rem 1rem;

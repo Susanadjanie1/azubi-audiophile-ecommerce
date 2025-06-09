@@ -7,7 +7,7 @@ export default function Products() {
       name: "ZX9 SPEAKER",
       description:
         "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
-      Image: "/images/image-category-thumbnail-speakers.png",
+      Image: "/assets/home/desktop/image-speaker-zx9.png",
       featured: true,
       bgColor: "bg-[#D87D4A]",
     },
@@ -17,9 +17,9 @@ export default function Products() {
       description:
         "Stream high quality sound wirelessly with minimal to no loss.",
       Images: {
-        desktop: "/images/image-speaker-zx7.jpg",
-        tablet: "/images/image-speaker-zx7-tablet.jpg",
-        mobile: "/images/Speaker-product-mobile.png",
+        desktop: "/assets/home/desktop/image-speaker-zx7.jpg",
+        tablet: "/assets/home/tablet/image-speaker-zx7.jpg",
+        mobile: "/assets/home/mobile/image-speaker-zx7.jpg",
       },
       featured: false,
       bgColor: "bg-[#F1F1F1]",
@@ -29,7 +29,7 @@ export default function Products() {
       name: "YX1 EARPHONES",
       description:
         "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones.",
-      Image: "/images/image-earphones-yx1-mobile.jpg",
+      Image: "/assets/home/desktop/image-earphones-yx1.jpg",
       featured: false,
       bgColor: "bg-[#F1F1F1]",
     },
@@ -40,11 +40,19 @@ export default function Products() {
       <div className="max-w-[1110px] mx-auto px-6 space-y-8">
         {/* ZX9 Speaker Featured */}
         <div className="bg-[#D87D4A] w-full h-auto lg:h-[560px] rounded-lg px-8 lg:px-16 py-10 lg:py-0 text-white overflow-hidden relative">
-          {/* Background Circles */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute w-[472px] h-[472px] rounded-full border border-white/20 -top-[50px] left-1/2 transform -translate-x-1/2 lg:left-0 lg:transform-none lg:-top-[50px]"></div>
-            <div className="absolute w-[542px] h-[542px] rounded-full border border-white/10 -top-[85px] left-1/2 transform -translate-x-1/2 lg:left-0 lg:transform-none lg:-top-[85px]"></div>
-            <div className="absolute w-[944px] h-[944px] rounded-full border border-white/5 -top-[300px] left-1/2 transform -translate-x-1/2 lg:transform-none lg:-top-[300px] lg:-left-[200px]"></div>
+          {/* Background Pattern */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="relative w-full h-full">
+              <Image
+                src="/assets/home/desktop/pattern-circles.svg"
+                alt=""
+                width={944}
+                height={944}
+                className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] -top-20 -left-20 lg:top-1/2 lg:-translate-y-1/2 lg:-left-32"
+                aria-hidden="true"
+                priority
+              />
+            </div>
           </div>
 
           <div className="flex flex-col lg:flex-row items-center relative z-10 h-full gap-8 lg:gap-16">
@@ -104,9 +112,9 @@ export default function Products() {
         </div>
 
         {/* YX1 Earphones */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products[2]?.Image ? (
-            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 relative w-[540px] h-[320px]">
+            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 relative w-full h-full md:h-[320px]">
               <Image
                 src={products[2].Image}
                 alt={products[2].name}
@@ -115,12 +123,12 @@ export default function Products() {
               />
             </div>
           ) : (
-            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 w-[540px] h-[320px]">
+            <div className="bg-[#F1F1F1] rounded-lg flex items-center justify-center min-h-[320px] p-8 w-full h-[320px]">
               <p>No image available</p>
             </div>
           )}
 
-          <div className="bg-[#F1F1F1] rounded-lg p-8 lg:p-16 flex flex-col justify-center">
+          <div className="bg-[#F1F1F1] rounded-lg p-8 md:p-12 lg:p-16 flex flex-col justify-center h-full">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-wider">
               {products[2].name}
             </h2>

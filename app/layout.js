@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "audiophile",
+  title: "audiophile ecommerce",
   description: "High-fidelity audio gear for audiophiles",
 };
 

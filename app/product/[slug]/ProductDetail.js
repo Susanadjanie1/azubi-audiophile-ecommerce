@@ -54,13 +54,16 @@ export default function ProductDetail({ product }) {
         
         <div className={styles.productInfo}>
           {product.new && <span className={styles.new}>New Product</span>}
-          <h1 className={styles.title}>
-            {product.shortName || product.name.split(' ').slice(0, -1).join(' ')}
-            <br />
-            <span className={styles.productType}>
-              {product.name.split(' ').pop()}
-            </span>
-          </h1>
+          <div className={styles.titleContainer}>
+            <h1 className={styles.mainTitle}>
+              {product.name}
+              {product.type && (
+                <span className={styles.typeTitle}>
+                  {product.type}
+                </span>
+              )}
+            </h1>
+          </div>
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{formattedPrice}</p>
           

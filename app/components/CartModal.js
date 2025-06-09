@@ -57,7 +57,7 @@ export default function CartModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex justify-end"
+      className="fixed inset-0 z-50 flex justify-end md:items-center md:justify-end md:pr-4 lg:pr-10 xl:pr-24 pt-20 md:pt-0"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       role="dialog"
       aria-modal="true"
@@ -65,9 +65,9 @@ export default function CartModal() {
     >
       <div
         ref={modalRef}
-        className="bg-white w-full max-w-md h-full md:h-auto md:max-h-[90vh] md:rounded-lg overflow-hidden flex flex-col"
+        className="bg-white w-full max-w-[377px] h-auto max-h-[calc(100vh-6rem)] md:max-h-[90vh] rounded-lg overflow-hidden flex flex-col mx-4 mt-0 mb-4 md:my-0"
       >
-        <div className="p-6 md:p-8">
+        <div className="p-8">
           <div className="flex justify-between items-center mb-8">
             <h2
               id="cart-title"
@@ -89,20 +89,22 @@ export default function CartModal() {
             <p className="text-center py-8">Your cart is empty</p>
           ) : (
             <div className="space-y-6">
-              <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 -mr-2">
+              <div className="space-y-6 max-h-[240px] overflow-y-auto pr-2 -mr-2">
                 {cart.map((item) => (
                   <div
                     key={item.id}
                     className="flex items-center justify-between"
                   >
                     <div className="flex items-center">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        width={64}
-                        height={64}
-                        className="rounded-lg"
-                      />
+                      <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={64}
+                          height={64}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
                       <div className="ml-4">
                         <p className="font-bold text-sm">
                           {item.shortName || item.name}
@@ -119,12 +121,12 @@ export default function CartModal() {
                             e.stopPropagation();
                             updateQuantity(item.id, item.quantity - 1);
                           }}
-                          className="px-3 py-1 text-gray-500 hover:text-black focus:outline-none focus:ring-1 focus:ring-[#D87D4A]"
+                          className="px-3 py-2 text-gray-500 hover:text-black focus:outline-none focus:ring-1 focus:ring-[#D87D4A]"
                           aria-label={`Decrease quantity of ${item.name}`}
                         >
                           -
                         </button>
-                        <span className="px-2 w-6 text-center">
+                        <span className="px-2 w-6 text-center font-bold">
                           {item.quantity}
                         </span>
                         <button
@@ -132,7 +134,7 @@ export default function CartModal() {
                             e.stopPropagation();
                             updateQuantity(item.id, item.quantity + 1);
                           }}
-                          className="px-3 py-1 text-gray-500 hover:text-black focus:outline-none focus:ring-1 focus:ring-[#D87D4A]"
+                          className="px-3 py-2 text-gray-500 hover:text-black focus:outline-none focus:ring-1 focus:ring-[#D87D4A]"
                           aria-label={`Increase quantity of ${item.name}`}
                         >
                           +

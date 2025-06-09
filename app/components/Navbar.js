@@ -4,6 +4,7 @@ import { Menu, X, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 import { useCart } from "../context/CartContext";
+import Image from "next/image";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,9 +37,16 @@ export default function Navbar() {
           <div className="flex-1 flex justify-center md:justify-start md:ml-0">
             <Link
               href="/"
-              className="block w-[143px] h-[25px] text-xl font-bold tracking-widest "
+              className="block w-[143px] h-[25px]"
             >
-              audiophile
+              <Image 
+                src="/assets/shared/desktop/logo.svg" 
+                alt="Audiophile logo"
+                width={143}
+                height={25}
+                className="h-full w-auto"
+                priority
+              />
             </Link>
           </div>
 
