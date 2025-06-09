@@ -3,12 +3,14 @@ import { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalItems, openCart } = useCart();
 
   return (
-    <header className="bg-black text-white relative z-50 ">
+    <header className="bg-black text-white relative z-50">
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
         <nav
           className="mx-auto flex items-center justify-between
@@ -60,47 +62,50 @@ export default function Navbar() {
           </div>
 
           {/* Right: Cart */}
-          <div className="ml-auto">
-            <ShoppingCart className="w-[23px] h-[20px]" />
+          <div className="relative">
+            <button 
+              onClick={openCart}
+              className="relative"
+              aria-label="Cart"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#D87D4A] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </button>
           </div>
         </nav>
       </div>
-
+      
       {/* Mobile Menu */}
-      <div
-        className={clsx(
-          "fixed top-0 left-0 h-full w-64 bg-black text-white z-50 transform transition-transform duration-300 ease-in-out md:hidden",
-          {
-            "translate-x-0": mobileMenuOpen,
-            "-translate-x-full": !mobileMenuOpen,
-          }
-        )}
-      >
-        <div className="p-6 pt-12">
-          <ul className="flex flex-col gap-4 uppercase text-sm tracking-widest">
+      {mobileMenuOpen && (
+        <div className="lg:hidden absolute top-16 left-0 w-full bg-white text-black py-8 px-6">
+          <ul className="space-y-6 uppercase text-sm tracking-widest">
             <li>
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/" className="block py-2 font-bold">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/headphones" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/headphones" className="block py-2 font-bold">
                 Headphones
               </Link>
             </li>
             <li>
-              <Link href="/speakers" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/speakers" className="block py-2 font-bold">
                 Speakers
               </Link>
             </li>
             <li>
-              <Link href="/earphones" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/earphones" className="block py-2 font-bold">
                 Earphones
               </Link>
             </li>
           </ul>
         </div>
-      </div>
+      )}
     </header>
   );
 }

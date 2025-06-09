@@ -1,0 +1,126 @@
+.container {
+  margin: 10rem 0;
+  max-width: 1110px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1.14px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #000;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imageContainer {
+  width: 350px;
+  height: 350px;
+  background: #F1F1F1;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.productImage {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.productName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 1.71px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.seeProduct {
+  background-color: #D87D4A;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.seeProduct:hover {
+  background-color: #FBAF85;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 6rem 0;
+    padding: 0 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .imageContainer {
+    width: 327px;
+    height: 120px;
+    margin: 0 auto 2.5rem;
+    border-radius: 8px;
+  }
+  
+  .productImage {
+    max-width: 40%;
+    max-height: 80%;
+  }
+  
+  .productName {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 375px) {
+  .imageContainer {
+    width: 100%;
+    max-width: 327px;
+    height: 120px;
+  }
+}
