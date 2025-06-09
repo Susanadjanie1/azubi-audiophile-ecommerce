@@ -22,7 +22,6 @@ export default function EarphonesPage() {
       <Navbar />
       <CategoryHeader title="EARPHONES" />
       <ProductGrid products={earphones} />
-      {/* <CategoryFooter /> */}
       <FeaturedProducts />
       <About />
       <Footer />

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import CheckoutSuccessModal from '../components/CheckoutSuccessModal';
 
 export default function CheckoutPage() {
   const { cart, getCartTotal, clearCart } = useCart();
@@ -22,6 +23,8 @@ export default function CheckoutPage() {
     eMoneyPin: '',
   });
   const [errors, setErrors] = useState({});
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [orderDetails, setOrderDetails] = useState(null);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderNumber, setOrderNumber] = useState('');
 
@@ -57,14 +60,34 @@ export default function CheckoutPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // In a real app, you would process the payment here
+      // Process the order (you would typically send this to your backend)
       const orderNum = '#' + Math.random().toString(36).substr(2, 9).toUpperCase();
       setOrderNumber(orderNum);
       setOrderComplete(true);
+      // Set order details for the success modal
+      setOrderDetails({
+        orderNumber: orderNum,
+        items: cart.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image
+        })),
+        grandTotal: getCartTotal()
+      });
+      
+      // Show success modal
+      setIsSuccessModalOpen(true);
+      
+      // Clear the cart
       clearCart();
-      // Scroll to top of the page
-      window.scrollTo(0, 0);
     }
+  };
+
+  const handleCloseModal = () => {
+    setIsSuccessModalOpen(false);
+    router.push('/');
   };
 
   if (cart.length === 0 && !orderComplete) {
@@ -368,7 +391,7 @@ export default function CheckoutPage() {
                   </svg>
                 </div>
                 <p className="text-sm text-gray-600">
-                  The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. 
+                  The &apos;Cash on Delivery&apos; option enables you to pay in cash when our delivery courier arrives at your residence. 
                   Just make sure your address is correct so that your order will not be cancelled.
                 </p>
               </div>
@@ -435,6 +458,13 @@ export default function CheckoutPage() {
           </div>
         </div>
       </form>
+      
+      {/* Success Modal */}
+      <CheckoutSuccessModal 
+        isOpen={isSuccessModalOpen}
+        onClose={handleCloseModal}
+        orderDetails={orderDetails}
+      />
     </div>
   );
 }

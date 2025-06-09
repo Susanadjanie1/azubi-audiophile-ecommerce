@@ -38,7 +38,6 @@ export default function HeadphonesPage() {
       <Navbar />
       <CategoryHeader title="HEADPHONES" />
       <ProductGrid products={headphones} />
-      {/* <CategoryFooter /> */}
       <FeaturedProduct />
       <About />
       <Footer />

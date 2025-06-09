@@ -1,9 +1,23 @@
-import { notFound } from 'next/navigation';
-import { getProductBySlug } from '../../data/products';
-import ProductDetail from './ProductDetail';
-import Navbar from '../../components/Navbar';
-import About from '../../components/About';
-import Footer from '../../components/Footer';
+// app/product/[slug]/page.js
+import { notFound } from "next/navigation";
+import { getProductBySlug } from "../../data/products";
+import ClientProductDetail from "./ClientProductDetail";
+
+// This function runs at build time to generate all possible paths
+export async function generateStaticParams() {
+  const products = [
+    'xx99-mark-ii-headphones',
+    'xx99-mark-i-headphones',
+    'xx59-headphones',
+    'zx9-speaker',
+    'zx7-speaker',
+    'yx1-wireless-earphones',
+  ];
+  
+  return products.map((slug) => ({
+    slug,
+  }));
+}
 
 export default function ProductPage({ params }) {
   const { slug } = params;
@@ -13,31 +27,5 @@ export default function ProductPage({ params }) {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow font-[Manrope] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <ProductDetail product={product} />
-      </main>
-      <About />
-      <Footer />
-    </div>
-  );
-}
-
-// Generate static params for all products
-export async function generateStaticParams() {
-  // This would come from an API or database in a real app
-  const products = [
-    { slug: 'xx99-mark-ii-headphones' },
-    { slug: 'xx99-mark-i-headphones' },
-    { slug: 'xx59-headphones' },
-    { slug: 'zx9-speaker' },
-    { slug: 'zx7-speaker' },
-    { slug: 'yx1-wireless-earphones' },
-  ];
-  
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
+  return <ClientProductDetail product={product} />;
 }

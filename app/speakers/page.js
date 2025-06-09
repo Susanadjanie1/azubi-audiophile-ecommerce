@@ -30,7 +30,6 @@ export default function SpeakersPage() {
       <Navbar />
       <CategoryHeader title="SPEAKERS" />
       <ProductGrid products={speakers} />
-      {/* <CategoryFooter /> */}
       <FeaturedProducts />
       <About />
       <Footer />

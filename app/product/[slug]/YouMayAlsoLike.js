@@ -18,7 +18,7 @@ export default function YouMayAlsoLike({ products }) {
                 width={350}
                 height={350}
                 className={styles.productImage}
-                priority={index < 3} // Only load first 3 images eagerly
+                priority={index < 3} 
               />
             </div>
             <h3 className={styles.productName}>{product.name.toUpperCase()}</h3>

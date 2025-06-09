@@ -1,5 +1,6 @@
 // ProductCard.js
 import { ArrowRight } from "lucide-react";
+import Image from 'next/image';
 
 /**
  * ProductCard Component
@@ -35,11 +36,18 @@ export default function ProductCard({
         w-[327px] h-[352px]
         md:w-[689px] md:h-[352px]
         lg:w-[540px] lg:h-[560px]
-        mx-auto
+        mx-auto relative
         ${reversed ? "lg:col-start-2" : ""}
         `}
       >
-        <img src={image} alt={`${name} ${type}`} className="w-full h-full object-cover" />
+        <Image 
+          src={image} 
+          alt={`${name} ${type}`} 
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+          priority={featured}
+        />
       </div>
 
       {/* Content */}

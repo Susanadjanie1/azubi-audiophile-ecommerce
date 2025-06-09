@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useCart } from '../context/CartContext';
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useCart } from "../context/CartContext";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function CartModal() {
   const {
@@ -18,7 +18,6 @@ export default function CartModal() {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
 
-  // Close modal when clicking outside or pressing Escape
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -27,54 +26,57 @@ export default function CartModal() {
     }
 
     function handleKeyDown(event) {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         closeCart();
       }
     }
 
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "hidden";
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
       closeButtonRef.current?.focus();
     } else {
-      document.body.style.overflow = 'unset'; // Re-enable scrolling when modal is closed
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen, closeCart]);
 
   if (!isOpen) return null;
 
   const handleRemoveAll = () => {
-    if (confirm('Are you sure you want to remove all items from your cart?')) {
+    if (confirm("Are you sure you want to remove all items from your cart?")) {
       clearCart();
     }
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 flex justify-end"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="cart-title"
     >
-      <div 
+      <div
         ref={modalRef}
         className="bg-white w-full max-w-md h-full md:h-auto md:max-h-[90vh] md:rounded-lg overflow-hidden flex flex-col"
       >
         <div className="p-6 md:p-8">
           <div className="flex justify-between items-center mb-8">
-            <h2 id="cart-title" className="text-lg font-bold uppercase tracking-wider">
+            <h2
+              id="cart-title"
+              className="text-lg font-bold uppercase tracking-wider"
+            >
               Cart ({totalItems})
             </h2>
             {cart.length > 0 && (
-              <button 
+              <button
                 onClick={handleRemoveAll}
                 className="text-gray-500 hover:text-black text-sm underline focus:outline-none focus:ring-2 focus:ring-[#D87D4A] focus:ring-offset-2 rounded"
               >
@@ -89,7 +91,10 @@ export default function CartModal() {
             <div className="space-y-6">
               <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 -mr-2">
                 {cart.map((item) => (
-                  <div key={item.id} className="flex items-center justify-between">
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between"
+                  >
                     <div className="flex items-center">
                       <Image
                         src={item.image}
@@ -99,7 +104,9 @@ export default function CartModal() {
                         className="rounded-lg"
                       />
                       <div className="ml-4">
-                        <p className="font-bold text-sm">{item.shortName || item.name}</p>
+                        <p className="font-bold text-sm">
+                          {item.shortName || item.name}
+                        </p>
                         <p className="text-sm text-gray-500">
                           ${item.price.toLocaleString()}
                         </p>
@@ -146,7 +153,7 @@ export default function CartModal() {
                 <button
                   className="w-full bg-[#D87D4A] hover:bg-[#fbaf85] text-white py-3 px-4 uppercase text-sm font-bold tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D87D4A]"
                   onClick={() => {
-                    window.location.href = '/checkout';
+                    window.location.href = "/checkout";
                   }}
                 >
                   Checkout
